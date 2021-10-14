@@ -51,6 +51,11 @@ h3 {
     transition: transform 80ms ease-in;
 }
 
+.second .card {
+    width: 30%;
+    height: 700px;
+}
+
 .form-container {
     position: absolute;
     height: 100%;
