@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import HttpConnect from './src/Library/Connect/HttpConnect.js';
 
 /* eslint-disable no-unused-vars */
 const express = require('express');
@@ -35,14 +36,9 @@ app.listen('3000', () => {
     console.log('Server is running on port 3000 kaa');
 })
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const container = document.getElementById('root')
+const element = document.getElementById(App)
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+ReactDOM.render(element, container)
+
 reportWebVitals();

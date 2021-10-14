@@ -7,6 +7,7 @@ import Axios from 'axios'
 import { useState } from 'react'
 
 const Content = ({ handleLogout }) => {
+    
     const { currentUser } = useContext(AuthContext);
     const [employeeList, setEmployeeList] = useState([]);
 
