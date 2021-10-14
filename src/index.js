@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import HttpConnect from './src/Library/Connect/HttpConnect.js';
 
 /* eslint-disable no-unused-vars */
 const express = require('express');
@@ -36,9 +35,11 @@ app.listen('3000', () => {
     console.log('Server is running on port 3000 kaa');
 })
 
-const container = document.getElementById('root')
-const element = document.getElementById(App)
-
-ReactDOM.render(element, container)
+ReactDOM.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>,
+    document.getElementById('root')
+  );
 
 reportWebVitals();
