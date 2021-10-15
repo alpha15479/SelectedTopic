@@ -3,7 +3,14 @@
 
 ## Available Scripts
 
+## Front-end
+React
 
+## Back-end
+Nodejs
+
+## Database
+Mysql
 
 ### docker build . -t react-image
 คำสั่งเพื่อ build ตัวโปรเจค ซึ่งจะเขียนไฟล์ .dockerignore ไว้ เพื่อให้มันทำงานได้เร็วขึ้น(ไม่สนใจ node_modules)
