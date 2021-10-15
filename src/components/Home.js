@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import "../Hero.css";
+import "./Hero.css";
 import { Link } from 'react-router-dom'
 import { AuthContext } from './Auth'
 

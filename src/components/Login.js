@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 import { AuthContext } from './Auth'
 import firebaseConfig from '../fire'
-import "../Login.css";
+import "./Login.css";
 
 const Login = () => {
 
