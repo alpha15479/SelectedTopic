@@ -1,17 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useState} from "react";
 import "./Hero.css";
 import { Redirect } from 'react-router-dom'
 import firebaseConfig from '../fire'
 import { AuthContext } from './Auth'
 import WorkItem from './WorkItem'
+import WorkPost from './WorkPost'
 import works from './Work';
 
 const Hero = ({ handleLogout }) => {
 
+    const [chooseWork, setChooseWork] = useState(null);
+
+    function onWorkClick(theWork) {
+        setChooseWork(theWork);
+    }
+
+    function onWorkCloseClick() {
+        setChooseWork(null);
+    }
+
     const { currentUser } = useContext(AuthContext);
+
     const workElements = works.map((work, index) => {
-        return <WorkItem key={index} work={work} />;
+        return <WorkItem key={index} work={work} onWorkClicking={onWorkClick} />;
     })
+
+    let workPost = null;
+    if (!!chooseWork) {
+        workPost = <WorkPost work={chooseWork} onBgClick={onWorkCloseClick} />
+    }
 
     if (!currentUser) {
         return <Redirect to="/login" />;
@@ -37,8 +54,10 @@ const Hero = ({ handleLogout }) => {
             <section className="section main-banner">
                 <div className="content">
                     <div className="row">
-                        <h3>Welcome to<em> PENTAGON</em></h3><br /><br /><br />
-                        { workElements }
+                        <h3>Welcome to<em> PENTAGON</em></h3><br /><br />
+                        <h2><em>ประกาศ</em>รับสมัครงาน</h2><br />
+                        { workElements } <br />
+                        { workPost }
                     </div>
                 </div>
             </section>

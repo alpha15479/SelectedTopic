@@ -25,6 +25,11 @@ h3 em {
     font-style: normal;
 }
 
+h2 em {
+    color: #f5a425;
+    font-style: normal;
+}
+
 h5 {
     font-weight: bold;
     font-size: 1.5em;

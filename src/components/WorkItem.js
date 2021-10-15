@@ -2,11 +2,11 @@
 import './Content.css'
 
 function WorkItem(props) {
-    const { work } = props
+    const { work, onWorkClicking } = props;
     return (
         <div className='col'>
             <div className='col pics'>
-                <img src={work.thumbnailUrl} />
+                <img src={work.thumbnailUrl} onClick={() => {onWorkClicking(work)}} />
             </div>
             <div className='col name'>
                 <h4>{work.title}</h4>
