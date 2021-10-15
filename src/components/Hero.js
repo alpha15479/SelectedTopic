@@ -1,4 +1,4 @@
-import React, { useContext, useState} from "react";
+import React, { useContext, useState } from "react";
 import "./Hero.css";
 import { Redirect } from 'react-router-dom'
 import firebaseConfig from '../fire'
@@ -6,10 +6,12 @@ import { AuthContext } from './Auth'
 import WorkItem from './WorkItem'
 import WorkPost from './WorkPost'
 import works from './Work';
+import Search from './Search';
 
 const Hero = ({ handleLogout }) => {
 
     const [chooseWork, setChooseWork] = useState(null);
+    const [searchWork, setSearchWork] = useState("");
 
     function onWorkClick(theWork) {
         setChooseWork(theWork);
@@ -21,7 +23,9 @@ const Hero = ({ handleLogout }) => {
 
     const { currentUser } = useContext(AuthContext);
 
-    const workElements = works.map((work, index) => {
+    const workElements = works.filter((work) => {
+        return work.title.includes(searchWork);
+    }).map((work, index) => {
         return <WorkItem key={index} work={work} onWorkClicking={onWorkClick} />;
     })
 
@@ -55,15 +59,13 @@ const Hero = ({ handleLogout }) => {
                 <div className="content">
                     <div className="row">
                         <h3>Welcome to<em> PENTAGON</em></h3><br /><br />
-                        <h2><em>ประกาศ</em>รับสมัครงาน</h2><br />
-                        { workElements } <br />
-                        { workPost }
+                        <h2><em>ประกาศ</em>รับสมัครงาน&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <Search value={searchWork} onValueChange={setSearchWork} /></h2><br />
+                        {workElements} <br />
+                        {workPost}
                     </div>
                 </div>
             </section>
-            <div className="footer">
-                <p>Hello, friends! Welcome to my Selected Topic Website. </p>
-            </div>
         </body>
     )
 }

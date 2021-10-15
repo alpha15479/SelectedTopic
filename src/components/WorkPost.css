@@ -38,6 +38,7 @@ body {
     max-width: 50%;
     max-height: 60%;
     width: 550px;
+    cursor: pointer;
     height: 350px;
 }
 
