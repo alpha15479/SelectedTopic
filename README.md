@@ -1,14 +1,14 @@
 # Getting Started with My App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+เป็นเว็บไซต์เกี่ยวกับการส่งใบสมัครงาน(แบบแปลกๆ) ของบริษัท Pentagon
 
 ## Available Scripts
 
 
 
-### `npm start`
+### `docker build . -t react-image`
+คำสั่งเพื่อ build ตัวโปรเจค ซึ่งจะเขียนไฟล์ .dockerignore ไว้ เพื่อให้มันทำงานได้เร็วขึ้น(ไม่สนใจ node_modules)
 
-
-### `npm test`
+### `npm run dev`
+ก่อนจะใช้คำสั่งนี้ให้ cd server ก่อน เพื่อรันข้อมูล
 
 
